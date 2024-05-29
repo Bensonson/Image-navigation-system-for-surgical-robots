@@ -1,0 +1,4 @@
+# Markups fiducial file version = 5.6
+# CoordinateSystem = LPS
+# columns = id,x,y,z,ow,ox,oy,oz,vis,sel,lock,label,desc,associatedNodeID
+1,-198,-40,109,0,0,0,1,1,1,0,entry-1,,,2,0

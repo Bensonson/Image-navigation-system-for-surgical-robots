@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="improved_robot">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="all">
+        <joint name="base_link_to_rotator1"/>
+        <joint name="rotator1_to_pivot1"/>
+        <joint name="pivot1_to_arm1"/>
+        <joint name="arm1_to_pivot2"/>
+        <joint name="pivot2_to_arm2"/>
+        <joint name="arm2_to_pivot3"/>
+        <joint name="pivot3_to_arm3"/>
+        <joint name="arm3_to_pivot4"/>
+        <joint name="pivot4_to_arm4"/>
+        <joint name="arm4_to_end_effector"/>
+        <joint name="inject_joint"/>
+    </group>
+    <group name="arm">
+        <joint name="base_link_to_rotator1"/>
+        <joint name="rotator1_to_pivot1"/>
+        <joint name="pivot1_to_arm1"/>
+        <joint name="arm1_to_pivot2"/>
+        <joint name="pivot2_to_arm2"/>
+        <joint name="arm2_to_pivot3"/>
+        <joint name="pivot3_to_arm3"/>
+        <joint name="arm3_to_pivot4"/>
+        <joint name="pivot4_to_arm4"/>
+        <joint name="arm4_to_end_effector"/>
+    </group>
+    <group name="needle">
+        <joint name="inject_joint"/>
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="start" group="all">
+        <joint name="arm1_to_pivot2" value="0"/>
+        <joint name="arm2_to_pivot3" value="0"/>
+        <joint name="arm3_to_pivot4" value="0"/>
+        <joint name="base_link_to_rotator1" value="1.57"/>
+        <joint name="inject_joint" value="0"/>
+        <joint name="pivot1_to_arm1" value="-0.8"/>
+        <joint name="pivot2_to_arm2" value="1.57"/>
+        <joint name="pivot3_to_arm3" value="0.8"/>
+        <joint name="pivot4_to_arm4" value="0"/>
+    </group_state>
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <end_effector name="needle" parent_link="end_effector" group="needle"/>
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="arm1" link2="base_link" reason="Never"/>
+    <disable_collisions link1="arm1" link2="pivot1" reason="Adjacent"/>
+    <disable_collisions link1="arm1" link2="pivot2" reason="Adjacent"/>
+    <disable_collisions link1="arm1" link2="rotator1" reason="Never"/>
+    <disable_collisions link1="arm2" link2="pivot1" reason="Never"/>
+    <disable_collisions link1="arm2" link2="pivot2" reason="Adjacent"/>
+    <disable_collisions link1="arm2" link2="pivot3" reason="Adjacent"/>
+    <disable_collisions link1="arm2" link2="rotator1" reason="Never"/>
+    <disable_collisions link1="arm3" link2="arm4" reason="Never"/>
+    <disable_collisions link1="arm3" link2="end_effector" reason="Never"/>
+    <disable_collisions link1="arm3" link2="needle" reason="Never"/>
+    <disable_collisions link1="arm3" link2="pivot2" reason="Never"/>
+    <disable_collisions link1="arm3" link2="pivot3" reason="Adjacent"/>
+    <disable_collisions link1="arm3" link2="pivot4" reason="Adjacent"/>
+    <disable_collisions link1="arm4" link2="end_effector" reason="Adjacent"/>
+    <disable_collisions link1="arm4" link2="needle" reason="Never"/>
+    <disable_collisions link1="arm4" link2="pivot2" reason="Never"/>
+    <disable_collisions link1="arm4" link2="pivot3" reason="Never"/>
+    <disable_collisions link1="arm4" link2="pivot4" reason="Adjacent"/>
+    <disable_collisions link1="base_link" link2="pivot1" reason="Never"/>
+    <disable_collisions link1="base_link" link2="pivot2" reason="Never"/>
+    <disable_collisions link1="base_link" link2="rotator1" reason="Adjacent"/>
+    <disable_collisions link1="end_effector" link2="needle" reason="Adjacent"/>
+    <disable_collisions link1="end_effector" link2="pivot3" reason="Never"/>
+    <disable_collisions link1="end_effector" link2="pivot4" reason="Never"/>
+    <disable_collisions link1="needle" link2="pivot1" reason="Never"/>
+    <disable_collisions link1="needle" link2="pivot3" reason="Never"/>
+    <disable_collisions link1="needle" link2="pivot4" reason="Never"/>
+    <disable_collisions link1="pivot1" link2="pivot2" reason="Never"/>
+    <disable_collisions link1="pivot1" link2="pivot3" reason="Never"/>
+    <disable_collisions link1="pivot1" link2="rotator1" reason="Adjacent"/>
+    <disable_collisions link1="pivot2" link2="pivot3" reason="Never"/>
+    <disable_collisions link1="pivot2" link2="pivot4" reason="Never"/>
+    <disable_collisions link1="pivot2" link2="rotator1" reason="Never"/>
+    <disable_collisions link1="pivot3" link2="pivot4" reason="Never"/>
+    <disable_collisions link1="pivot3" link2="rotator1" reason="Never"/>
+</robot>

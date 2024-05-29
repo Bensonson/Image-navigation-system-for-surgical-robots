@@ -1,0 +1,31 @@
+controller_list:
+  - name: fake_all_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - base_link_to_rotator1
+      - pivot1_to_arm1
+      - arm1_to_pivot2
+      - pivot2_to_arm2
+      - arm2_to_pivot3
+      - pivot3_to_arm3
+      - arm3_to_pivot4
+      - pivot4_to_arm4
+      - inject_joint
+  - name: fake_arm_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - base_link_to_rotator1
+      - pivot1_to_arm1
+      - arm1_to_pivot2
+      - pivot2_to_arm2
+      - arm2_to_pivot3
+      - pivot3_to_arm3
+      - arm3_to_pivot4
+      - pivot4_to_arm4
+  - name: fake_needle_controller
+    type: $(arg fake_execution_type)
+    joints:
+      - inject_joint
+initial:  # Define initial robot poses per group
+  - group: all
+    pose: start

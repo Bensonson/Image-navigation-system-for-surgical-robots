@@ -1,0 +1,412 @@
+<?xml version="1.0" ?>
+<robot name="improved_robot">
+    <!-- colors -->
+    <material name="brown">
+        <color rgba="0.349 0.227 0.11 1" />
+    </material>
+    <material name="sliver">
+        <color rgba="0.8 0.8 0.8 1" />
+    </material>
+    <material name="white">
+        <color rgba="1 1 1 1" />
+    </material>
+    <material name="transparent_blue">
+        <color rgba="0 0 0.8 0.5" />
+    </material>
+    <!-- link definitions -->
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="10 10 1" />
+            </geometry>
+            <material name="brown" />
+        </visual>
+        <collision>
+            <geometry>
+                <box size="10 10 1" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="rotator1">
+        <visual>
+            <geometry>
+                <cylinder radius="2" length="1" />
+            </geometry>
+            <material name="sliver" />
+        </visual>
+        <collision>
+            <geometry>
+                <cylinder radius="2" length="1" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="pivot1">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 1.57 0" />
+            <geometry>
+                <cylinder radius="1" length="2" />
+            </geometry>
+            <material name="sliver" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 1.57 0" />
+            <geometry>
+                <cylinder radius="1" length="2" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="arm1">
+        <visual>
+            <origin xyz="0 0 11" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="1" length="20" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 11" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="1" length="20" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="pivot2">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 1.57 0" />
+            <geometry>
+                <cylinder radius="2" length="2" />
+            </geometry>
+            <material name="sliver" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 1.57 0" />
+            <geometry>
+                <cylinder radius="2" length="2" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="arm2">
+        <visual>
+            <origin xyz="0 0 9.5" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="1" length="15" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 9.5" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="1" length="15" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="pivot3">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 1.57 0" />
+            <geometry>
+                <cylinder radius="2" length="2" />
+            </geometry>
+            <material name="sliver" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 1.57 0" />
+            <geometry>
+                <cylinder radius="2" length="2" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="arm3">
+        <visual>
+            <origin xyz="0 0 7" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="1" length="10" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 7" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="1" length="10" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="pivot4">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 1.57 0" />
+            <geometry>
+                <cylinder radius="1" length="2" />
+            </geometry>
+            <material name="sliver" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 1.57 0" />
+            <geometry>
+                <cylinder radius="1" length="2" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="arm4">
+        <visual>
+            <origin xyz="0 0 1.25" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="2" length="0.5" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 1.25" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="2" length="0.5" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="end_effector">
+        <visual>
+            <origin xyz="0 0 3.5" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="1" length="5" />
+            </geometry>
+            <material name="transparent_blue" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 3.5" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="1" length="5" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <link name="needle">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="0.025" length="5" />
+            </geometry>
+            <material name="sliver" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <cylinder radius="0" length="0" />
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.1" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <inertia ixx="0.03" iyy="0.03" izz="0.03" ixy="0.0" ixz="0.0" iyz="0.0" />
+        </inertial>
+    </link>
+    <joint name="base_link_to_rotator1" type="continuous">
+        <origin xyz="0 0 1" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+        <parent link="base_link" />
+        <child link="rotator1" />
+    </joint>
+    <joint name="rotator1_to_pivot1" type="fixed">
+        <origin xyz="0 0 1.5" rpy="0 0 0" />
+        <parent link="rotator1" />
+        <child link="pivot1" />
+    </joint>
+    <joint name="pivot1_to_arm1" type="revolute">
+        <parent link="pivot1" />
+        <child link="arm1" />
+        <axis xyz="1 0 0" />
+        <limit lower="-1.57" upper="1.57" effort="30" velocity="1" />
+    </joint>
+    <joint name="arm1_to_pivot2" type="continuous">
+        <parent link="arm1" />
+        <child link="pivot2" />
+        <origin xyz="0 0 23" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+    </joint>
+    <joint name="pivot2_to_arm2" type="continuous">
+        <parent link="pivot2" />
+        <child link="arm2" />
+        <axis xyz="1 0 0" />
+    </joint>
+    <joint name="arm2_to_pivot3" type="continuous">
+        <parent link="arm2" />
+        <child link="pivot3" />
+        <origin xyz="0 0 19" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+    </joint>
+    <joint name="pivot3_to_arm3" type="continuous">
+        <parent link="pivot3" />
+        <child link="arm3" />
+        <axis xyz="1 0 0" />
+    </joint>
+    <joint name="arm3_to_pivot4" type="continuous">
+        <parent link="arm3" />
+        <child link="pivot4" />
+        <origin xyz="0 0 13" rpy="0 0 0" />
+        <axis xyz="0 0 1" />
+    </joint>
+    <joint name="pivot4_to_arm4" type="revolute">
+        <parent link="pivot4" />
+        <child link="arm4" />
+        <axis xyz="1 0 0" />
+        <limit lower="-1.57" upper="1.57" effort="30" velocity="1" />
+    </joint>
+    <joint name="arm4_to_end_effector" type="fixed">
+        <origin xyz="0 0 0.5" rpy="0 0 0" />
+        <parent link="arm4" />
+        <child link="end_effector" />
+    </joint>
+    <joint name="inject_joint" type="prismatic">
+        <origin xyz="0 0 3.5" rpy="0 0 0" />
+        <parent link="end_effector" />
+        <child link="needle" />
+        <axis xyz="0 0 1" />
+        <limit effort="30" velocity="1.0" lower="0" upper="5" />
+    </joint>
+    <transmission name="trans_base_link_to_rotator1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="base_link_to_rotator1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="base_link_to_rotator1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_pivot1_to_arm1">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="pivot1_to_arm1">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="pivot1_to_arm1_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_arm1_to_pivot2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm1_to_pivot2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm1_to_pivot2_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_pivot2_to_arm2">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="pivot2_to_arm2">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="pivot2_to_arm2_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_arm2_to_pivot3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm2_to_pivot3">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm2_to_pivot3_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_pivot3_to_arm3">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="pivot3_to_arm3">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="pivot3_to_arm3_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_arm3_to_pivot4">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="arm3_to_pivot4">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="arm3_to_pivot4_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_pivot4_to_arm4">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="pivot4_to_arm4">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="pivot4_to_arm4_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <transmission name="trans_inject_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <joint name="inject_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+        <actuator name="inject_joint_motor">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+    </transmission>
+    <gazebo>
+        <plugin name="gazebo_ros_control">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
+</robot>
+
