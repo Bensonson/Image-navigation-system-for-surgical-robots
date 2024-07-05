@@ -11,7 +11,8 @@ Step1:
 exec(open(your_path/PathPlanning.py').read())
 
 best_path, max_d = findpath('entries_name', 'targets_name', 'vessels_name', 'ventricles_name', max_length=infinity, scale_rate=1)
-(You can set max_length to any values and scale_rate to any integers. Note: larger scale_rate brings significant performance loss.)
+(You can set max_length to any values and scale_rate to any integers.   Note: larger scale_rate brings significant performance loss.)
+
 NOTE: findpath() will freeze your computer for a while, minutes or hours. This is normal, do not force quit 3D Slicer. The result from whole dataset is in folder "EntryTarget".
 
 gettransform('entry', 'target',patient_position=[0,0,0])
