@@ -1,5 +1,5 @@
-# 7MRI0070-Assignment
-This is a course assignment project.
+# Image navigation system for surgical robots.
+This is a course assignment project. It calculate the best trajectory for a needle insertion in 3D Slicer, and command a ROS2 robot model to perform the action.
 
 Step1:
 
