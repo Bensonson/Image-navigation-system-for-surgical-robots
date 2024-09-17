@@ -2,7 +2,7 @@
 
 This is a course assignment project that calculates the optimal trajectory for needle insertion in 3D Slicer. It then commands a ROS robot model to perform the action.
 
-![Overall Work Flow](./readme_pic.png)
+![Overall Work Flow](./readme_pic.jpg)
 
 
 The program requires two `vtkMRMLMarkupsFiducialNode` instances as the entry and target candidate respectively, as well as two `vtkMRMLLabelMapVolumeNode` instances representing critical structures to be avoided. The algorithm will return a `vtkMRMLLinearTransformNode`, which you need to push into the ROS environment using OpenIGTLink.
