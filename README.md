@@ -1,40 +1,44 @@
-# Image navigation system for surgical robots.
-This is a course assignment project. It calculate the best trajectory for a needle insertion in 3D Slicer, and command a ROS2 robot model to perform the action.
+# Image Navigation System for Surgical Robots
 
-Step1:
+This is a course assignment project that calculates the optimal trajectory for needle insertion in 3D Slicer. It then commands a ROS robot model to perform the action.
 
-1. Open 3D Slicer
+![Overall Work Flow](./readme_pic.png)
 
-2. Import your entries, targets, vessel, and ventricle
 
-3. In Python terminal run:
-exec(open(your_path/PathPlanning.py').read())
+The program requires two `vtkMRMLMarkupsFiducialNode` instances as the entry and target candidate respectively, as well as two `vtkMRMLLabelMapVolumeNode` instances representing critical structures to be avoided. The algorithm will return a `vtkMRMLLinearTransformNode`, which you need to push into the ROS environment using OpenIGTLink.
 
+## Instructions
+
+### Step 1
+1. Open 3D Slicer.
+2. Import your entries, targets, vessels, and ventricles.
+3. In the Python terminal, run the following commands:
+```python
+exec(open(your_path/PathPlanning.py').read())  
 best_path, max_d = findpath('entries_name', 'targets_name', 'vessels_name', 'ventricles_name', max_length=infinity, scale_rate=1)
-(You can set max_length to any values and scale_rate to any integers.   Note: larger scale_rate brings significant performance loss.)
+```
+   - You can set `max_length` to any value and `scale_rate` to any integer.
+   - Note: A larger `scale_rate` can result in a significant performance loss.
+   - __Warning__: The `findpath()` function uses all available CPU threads for concurrency. While this can speed up the calculation, it may also freeze your computer temporarily, for a period of minutes or even hours. This is normal and you should not force quit 3D Slicer during this process.
+```python
+gettransform('entry', 'target', patient_position=[0,0,0])
+```
+   - You can set a different `patient_position` for a better path.
 
-NOTE: findpath() will freeze your computer for a while, minutes or hours. This is normal, do not force quit 3D Slicer. The result from whole dataset is in folder "EntryTarget".
+4. Open OpenIGTLinkIF and establish a connection with the Ubuntu machine running ROS.
 
-gettransform('entry', 'target',patient_position=[0,0,0])
-(You can set a different patient_position for batter path)
-
-4. Open OpenIGTLinkIF and build connection with Ubuntu machine with ROS.
-
-
-Step2:
-
-1. Build a ROS workspace and put folder "MyBot" into the space
-
-2. Open a terminal, and run:
-
-source your_workspace_path/devel/setup.bash
-
+### Step 2
+1. Construct a ROS workspace and place the `MyBot` folder within this space.
+2. Open a terminal and run the following commands:
+```bash
+source your_workspace_path/devel/setup.bash  
 roslaunch MyBot demo.launch
-
-3. Open another terminal, and run:
-
-source your_workspace_path/devel/setup.bash
-
+```
+3. Open another terminal and run the following commands:
+```bash
+source your_workspace_path/devel/setup.bash  
 rosrun MyBot PoseGoal0.2.py
+```
+4. Follow the instructions in the terminal. You should be able to observe the movement in RViz, the window opened in Step 2.2.
 
-4. Follow the instructions in the terminal opened in step2.3. You should be able to see the movement in RViz, the window you open in step 2.2.
+Please remember to replace the placeholders (e.g., 'your_path', 'entries_name', etc.) with your actual values before using these instructions.
