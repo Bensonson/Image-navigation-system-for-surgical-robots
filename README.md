@@ -42,3 +42,5 @@ rosrun MyBot PoseGoal0.2.py
 4. Follow the instructions in the terminal. You should be able to observe the movement in RViz, the window opened in Step 2.2.
 
 Please remember to replace the placeholders (e.g., 'your_path', 'entries_name', etc.) with your actual values before using these instructions.
+
+For detailed description of this project, please refer to the `Image-guided Robotic Navigation Final Report.pdf` file under the root directory.
