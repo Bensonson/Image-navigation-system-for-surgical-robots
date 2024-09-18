@@ -5,7 +5,7 @@ This is a course assignment project that calculates the optimal trajectory for n
 ![Overall Work Flow](./readme_pic.jpg)
 
 
-The program requires two `vtkMRMLMarkupsFiducialNode` instances as the entry and target candidate respectively, as well as two `vtkMRMLLabelMapVolumeNode` instances representing critical structures to be avoided. The algorithm will return a `vtkMRMLLinearTransformNode`, which you need to push into the ROS environment using OpenIGTLink.
+This program is designed for and only tested on a fake brain dataset specific for my course. However, in theory it should also works in other senarios if the input is in the right format. The program requires two `vtkMRMLMarkupsFiducialNode` instances as the entry and target candidate respectively, as well as two `vtkMRMLLabelMapVolumeNode` instances representing critical structures (e.g., blood vessels) to be avoided. The algorithm will return a `vtkMRMLLinearTransformNode`, which you need to push into the ROS environment using OpenIGTLink.
 
 ## Instructions
 
